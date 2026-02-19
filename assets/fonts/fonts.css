@@ -1,0 +1,66 @@
+/* ============================================================
+   fonts.css — Self-hosted font declarations
+   Eliminates the Google Fonts external dependency, removing
+   the SRI warning and improving privacy (no request to Google).
+
+   TO USE: Download the actual font files from Google Fonts
+   (https://fonts.google.com/specimen/Space+Mono and /Sora)
+   and place them in assets/fonts/ with these filenames.
+
+   Until then the @font-face rules below will gracefully fall
+   back to the system monospace and sans-serif fonts.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Space Mono'),
+       url('../fonts/SpaceMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Space Mono Bold'),
+       url('../fonts/SpaceMono-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Sora Light'),
+       url('../fonts/Sora-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Sora'),
+       url('../fonts/Sora-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Sora SemiBold'),
+       url('../fonts/Sora-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Sora Bold'),
+       url('../fonts/Sora-Bold.woff2') format('woff2');
+}

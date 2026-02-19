@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travis Teo | Cybersecurity Portfolio</title>
+
+  <!-- ── SECURITY HEADERS (meta equivalents) ──
+       Full HTTP headers should be set server-side on GitHub Pages
+       via a _headers file (Netlify) or vercel.json.
+       These meta tags cover what browsers honour client-side. -->
+
+  <!-- Prevents clickjacking by disallowing iframes -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+
+  <!-- Stops browsers from MIME-sniffing the content type -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <!-- Controls referrer information sent to external links -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Content Security Policy:
+       - default-src 'self'         → only load from same origin by default
+       - script-src 'self'          → only our own JS files (no inline scripts, no CDN)
+       - style-src 'self' fonts.googleapis.com  → our CSS + Google Fonts CSS
+       - font-src fonts.gstatic.com             → Google Fonts actual font files
+       - img-src 'self' data:                   → local images only
+       - connect-src 'self'                     → fetch() only to same origin (our sections/)
+       - frame-ancestors 'none'                 → no iframing (stronger than X-Frame-Options)
+       - base-uri 'self'                        → prevent base tag injection
+       - form-action 'self'                     → no form hijacking
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self';
+    font-src 'self';
+    img-src 'self' data:;
+    connect-src 'self';
+    frame-ancestors 'none';
+    base-uri 'self';
+    form-action 'self';
+  ">
+
+  <!-- Self-hosted fonts — no external Google Fonts request.
+       Download woff2 files from fonts.google.com and place in assets/fonts/
+       until then Sora and Space Mono fall back to system fonts gracefully -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=1.0">
+
+  <!-- CSS — global first, then section-specific — ?v=1.0 busts Cloudflare cache on updates -->
+  <link rel="stylesheet" href="css/style.css?v=1.0">
+  <link rel="stylesheet" href="css/hero.css?v=1.0">
+  <link rel="stylesheet" href="css/about.css?v=1.0">
+  <link rel="stylesheet" href="css/experience.css?v=1.0">
+  <link rel="stylesheet" href="css/projects.css?v=1.0">
+  <link rel="stylesheet" href="css/skills.css?v=1.0">
+  <link rel="stylesheet" href="css/certifications.css?v=1.0">
+  <link rel="stylesheet" href="css/writeups.css?v=1.0">
+  <link rel="stylesheet" href="css/contact.css?v=1.0">
+</head>
+<body>
+
+  <!-- NAV — static, always present -->
+  <nav>
+    <a href="#hero" class="nav-logo">T<span>.</span>Teo</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#writeups">Lab Writeups</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       SECTION SLOTS
+       loader.js fetches sections/<id>.html and
+       injects the content into each slot below.
+  ══════════════════════════════════════════ -->
+
+  <section id="hero"></section>
+  <section id="about"></section>
+  <section id="experience"></section>
+  <section id="projects"></section>
+  <section id="skills"></section>
+  <section id="certifications"></section>
+  <section id="writeups"></section>
+  <section id="contact"></section>
+
+  <footer>
+    <span>Built by Teo Chin Wee Travis · 2028 · Singapore</span>
+  </footer>
+
+  <!-- Scripts — load order matters:
+       animations.js and nav.js must load before loader.js
+       so their functions exist when loader.js calls them -->
+  <script src="js/animations.js?v=1.0"></script>
+  <script src="js/nav.js?v=1.0"></script>
+  <script src="js/loader.js?v=1.0"></script>
+
+</body>
+</html>
