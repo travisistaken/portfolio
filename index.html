@@ -3,102 +3,416 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travis Teo | Cybersecurity Portfolio</title>
-
-  <!-- ── SECURITY HEADERS (meta equivalents) ──
-       Full HTTP headers should be set server-side on GitHub Pages
-       via a _headers file (Netlify) or vercel.json.
-       These meta tags cover what browsers honour client-side. -->
-
-  <!-- Prevents clickjacking by disallowing iframes -->
-  <meta http-equiv="X-Frame-Options" content="DENY">
-
-  <!-- Stops browsers from MIME-sniffing the content type -->
+  <title>Travis Teo — Portfolio</title>
+  <meta name="description" content="Full portfolio of Travis Teo — ICT Student, Aspiring Cybersecurity Analyst, Nanyang Polytechnic.">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-
-  <!-- Controls referrer information sent to external links -->
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-
-  <!-- Content Security Policy:
-       - default-src 'self'         → only load from same origin by default
-       - script-src 'self'          → only our own JS files (no inline scripts, no CDN)
-       - style-src 'self' fonts.googleapis.com  → our CSS + Google Fonts CSS
-       - font-src fonts.gstatic.com             → Google Fonts actual font files
-       - img-src 'self' data:                   → local images only
-       - connect-src 'self'                     → fetch() only to same origin (our sections/)
-       - frame-ancestors 'none'                 → no iframing (stronger than X-Frame-Options)
-       - base-uri 'self'                        → prevent base tag injection
-       - form-action 'self'                     → no form hijacking
-  -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self';
-    style-src 'self';
-    font-src 'self';
-    img-src 'self' data:;
-    connect-src 'self';
-    frame-ancestors 'none';
-    base-uri 'self';
-    form-action 'self';
-  ">
-
-  <!-- Self-hosted fonts — no external Google Fonts request.
-       Download woff2 files from fonts.google.com and place in assets/fonts/
-       until then Sora and Space Mono fall back to system fonts gracefully -->
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=1.0">
-
-  <!-- CSS — global first, then section-specific — ?v=1.0 busts Cloudflare cache on updates -->
-  <link rel="stylesheet" href="css/style.css?v=1.0">
-  <link rel="stylesheet" href="css/hero.css?v=1.0">
-  <link rel="stylesheet" href="css/about.css?v=1.0">
-  <link rel="stylesheet" href="css/experience.css?v=1.0">
-  <link rel="stylesheet" href="css/projects.css?v=1.0">
-  <link rel="stylesheet" href="css/skills.css?v=1.0">
-  <link rel="stylesheet" href="css/certifications.css?v=1.0">
-  <link rel="stylesheet" href="css/writeups.css?v=1.0">
-  <link rel="stylesheet" href="css/contact.css?v=1.0">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAV — static, always present -->
-  <nav>
-    <a href="#hero" class="nav-logo">T<span>.</span>Teo</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#certifications">Certs</a></li>
-      <li><a href="#writeups">Lab Writeups</a></li>
-      <li><a href="#contact">Contact</a></li>
+  <div class="site-net">
+    <a href="https://travisteo.com"           class="sn-link">travisteo.com</a>
+    <a href="https://portfolio.travisteo.com"  class="sn-link current">portfolio</a>
+    <a href="https://projects.travisteo.com"   class="sn-link">projects</a>
+    <a href="https://resume.travisteo.com"     class="sn-link">resume</a>
+    <a href="https://writeups.travisteo.com"   class="sn-link">writeups</a>
+    <a href="https://contact.travisteo.com"    class="sn-link">contact</a>
+  </div>
+
+  <nav class="main-nav">
+    <a href="#hero" class="nav-logo">Travis Teo</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about"    data-nav>About</a></li>
+      <li><a href="#exp"      data-nav>Experience</a></li>
+      <li><a href="#edu"      data-nav>Education</a></li>
+      <li><a href="#projects" data-nav>Projects</a></li>
+      <li><a href="#certs"    data-nav>Certs</a></li>
+      <li><a href="#awards"   data-nav>Awards</a></li>
+      <li><a href="#writeups" data-nav>Writeups</a></li>
+      <li><a href="#events"   data-nav>Events</a></li>
+      <li><a href="#contact"  data-nav>Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- ══════════════════════════════════════════
-       SECTION SLOTS
-       loader.js fetches sections/<id>.html and
-       injects the content into each slot below.
-  ══════════════════════════════════════════ -->
+  <div class="page">
 
-  <section id="hero"></section>
-  <section id="about"></section>
-  <section id="experience"></section>
-  <section id="projects"></section>
-  <section id="skills"></section>
-  <section id="certifications"></section>
-  <section id="writeups"></section>
-  <section id="contact"></section>
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">// Portfolio</div>
+          <h1 class="hero-name">Travis Teo</h1>
+          <div class="hero-role">ICT Student &nbsp;·&nbsp; Aspiring Cybersecurity Analyst</div>
+          <p class="hero-desc">Nanyang Polytechnic student with hands-on experience in vulnerability management and system hardening at ST Engineering. Building towards a career in cybersecurity.</p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-solid">View Projects</a>
+            <a href="#contact"  class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-term">
+          <div class="terminal">
+            <div class="term-bar">
+              <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+              <span class="term-title">travis_teo@portfolio:~</span>
+            </div>
+            <div class="term-body" id="term-out"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <span>Built by Teo Chin Wee Travis · 2028 · Singapore</span>
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 01</div>
+        <h2 class="sec-title">About Me</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div>
+          <p>I'm an ICT student at <strong>Nanyang Polytechnic</strong>, currently focused on cybersecurity and networking. Before NYP, I studied Electronics Engineering at ITE College Central — which gave me a solid hardware and systems foundation I now apply to security work.</p>
+          <p>I spent 8 months at <strong>ST Engineering</strong> as an Information Security Intern — running vulnerability assessments with Tenable Nessus, hardening enterprise systems, and documenting compliance evidence for internal audits. My first real look at how security works in practice, not just in theory.</p>
+          <p>Outside of school I practice on <strong>HackTheBox</strong>, <strong>TryHackMe</strong>, and <strong>OverTheWire</strong>, working through networking and Linux challenges. I also watch YouTube channels and follow tech communities to stay current on new tools, ideas, and inspiration. I find that actually breaking things is the fastest way to understand how to protect them. I document everything on <a href="https://medium.com/@travis-teo" target="_blank" rel="noopener noreferrer">Medium</a> and <a href="https://substack.com/@travisteo" target="_blank" rel="noopener noreferrer">Substack</a>.</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Months at ST Engineering</span></div>
+          <div class="stat-card"><span class="stat-num">3+</span><span class="stat-label">Security Lab Platforms</span></div>
+          <div class="stat-card"><span class="stat-num">4+</span><span class="stat-label">Projects Shipped</span></div>
+          <div class="stat-card"><span class="stat-num">2027</span><span class="stat-label">Expected Graduation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="exp" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 02</div>
+        <h2 class="sec-title">Experience</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-pin"><div class="tl-dot"></div><div class="tl-line last"></div></div>
+          <div class="tl-body">
+            <div class="tl-date">OCT 2023 – MAY 2024 · 8 MONTHS</div>
+            <div class="tl-role">Information Security Intern</div>
+            <div class="tl-org">ST Engineering Advanced Networks &amp; Sensors · Singapore · On-site</div>
+            <ul class="tl-bullets">
+              <li>Performed vulnerability assessments across enterprise systems using Tenable Nessus — identifying, documenting, and tracking weaknesses to reduce attack surface</li>
+              <li>Performed system hardening on workstations and servers, logging each configuration step with documented rationale and residual risk</li>
+              <li>Managed backup and restore operations using Arcserve for data protection and business continuity assurance</li>
+              <li>Collected and documented evidence for compliance audits, maintaining structured records for audit readiness</li>
+              <li>Configured device security and access controls to enforce least-privilege across the environment</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Tenable Nessus</span><span class="tag">Arcserve</span><span class="tag">System Hardening</span>
+              <span class="tag">VMware Workstation</span><span class="tag">Access Control</span><span class="tag">Compliance Auditing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section id="edu" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 03</div>
+        <h2 class="sec-title">Education</h2>
+      </div>
+      <div class="timeline reveal">
+
+        <div class="tl-item">
+          <div class="tl-pin"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-date">APR 2025 – DEC 2027</div>
+            <div class="tl-role">Diploma in Common ICT Programme</div>
+            <div class="tl-org">Nanyang Polytechnic · Singapore</div>
+            <p class="tl-desc">Broad ICT programme covering networking, programming, cybersecurity, web development, database administration, and data analytics. Developing both technical and problem-solving skills across a range of computing disciplines.</p>
+            <div class="tag-row">
+              <span class="tag">Cybersecurity</span><span class="tag">Networking</span><span class="tag">Python</span>
+              <span class="tag">JavaScript</span><span class="tag">Web Development</span><span class="tag">Database Administration</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-pin"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-date">JAN 2022 – DEC 2024</div>
+            <div class="tl-role">Higher NITEC in Electronics Engineering</div>
+            <div class="tl-org">Institute of Technical Education (ITE College Central) · Singapore</div>
+            <p class="tl-desc">Electronics Engineering covering microelectronics, IoT, TCP/IP networking, and hardware systems.</p>
+            <ul class="tl-bullets">
+              <li><strong style="color:var(--yellow);">Director's List</strong> — Top 10% of cohort at ITE College Central · Jan 2024</li>
+              <li><strong style="color:var(--yellow);">NYAA Bronze</strong> — National Youth Achievement Award · May 2024</li>
+              <li>Information Technology Intern at ST Engineering Advanced Networks &amp; Sensors · Oct 2023 – May 2024</li>
+              <li>CCA: Japanese Pop Culture Research Club — language classes, cultural exchange, Gundam building, Microsoft Teams collaboration</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Electronics Engineering</span><span class="tag">TCP/IP</span><span class="tag">IoT</span>
+              <span class="tag">Microelectronics</span><span class="tag">CAD</span><span class="tag">Soldering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-pin"><div class="tl-dot"></div><div class="tl-line last"></div></div>
+          <div class="tl-body">
+            <div class="tl-date">JAN 2018 – DEC 2021</div>
+            <div class="tl-role">GCE N(T)-Level</div>
+            <div class="tl-org">Temasek Secondary School · Singapore</div>
+            <ul class="tl-bullets">
+              <li>Class Manager 2019–2021 — organised school events including Kindness Week; fostered positive class culture</li>
+              <li>NCC Master Sergeant — represented school in Freestyle Drill, Fitness Challenge, and Guardians of the City (Silver Award)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 04</div>
+        <h2 class="sec-title">Projects</h2>
+        <p class="sec-intro">Things I've built, contributed to, or practised. Click images to expand, "Read More" for full detail.</p>
+      </div>
+      <!-- Filter explanation: tags on each project card let you drill down by type.
+           To add a new filter: add a button below with data-pf="yourTag",
+           then add the matching tag to the PROJECTS array in data.js -->
+      <div class="filters reveal" id="proj-filters">
+        <button class="filter-btn active" data-pf="all">All</button>
+        <button class="filter-btn" data-pf="security">Security</button>
+        <button class="filter-btn" data-pf="web">Web Dev</button>
+        <button class="filter-btn" data-pf="infra">Infrastructure</button>
+      </div>
+      <div id="proj-list" class="reveal"></div>
+      <div id="proj-pag"  class="pagination reveal"></div>
+    </section>
+
+    <!-- ── CERTIFICATIONS ── -->
+    <section id="certs" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 05</div>
+        <h2 class="sec-title">Certifications</h2>
+        <p class="sec-intro">Verified credentials — each links to proof.</p>
+      </div>
+      <div class="cert-grid reveal">
+
+        <div class="cert-card">
+          <img src="assets/images/cert-cisco.png" alt="Cisco Introduction to Cybersecurity Certificate" class="cert-img expandable">
+          <div class="expand-hint">click to expand</div>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-name">Introduction to Cybersecurity</div>
+          <div class="cert-date">Nov 2024</div>
+          <div class="cert-badge">✓ VERIFIED</div>
+        </div>
+
+        <div class="cert-card">
+          <img src="assets/images/cert-ibm.png" alt="IBM Web Development Fundamentals Certificate" class="cert-img expandable">
+          <div class="expand-hint">click to expand</div>
+          <div class="cert-issuer">IBM SkillsBuild</div>
+          <div class="cert-name">Web Development Fundamentals</div>
+          <div class="cert-date">Aug 2025</div>
+          <a href="https://www.credly.com/badges/8e4d42b4-eb7a-4892-842f-b90d467f9e40" target="_blank" rel="noopener noreferrer" class="cert-verify">Verify on Credly ↗</a>
+          <div class="cert-badge">✓ VERIFIED</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── AWARDS ── -->
+    <section id="awards" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 06</div>
+        <h2 class="sec-title">Honors &amp; Awards</h2>
+        <p class="sec-intro">Recognition received during my education.</p>
+      </div>
+      <div class="award-grid reveal">
+
+        <div class="award-card">
+          <img src="assets/images/cert-nyaa.png" alt="NYAA Bronze Award" class="award-img expandable">
+          <div class="expand-hint">click to expand</div>
+          <div class="award-issuer">NYAA Council of Singapore</div>
+          <div class="award-name">National Youth Achievement Award — Bronze</div>
+          <div class="award-date">May 2024 · ITE College Central</div>
+        </div>
+
+        <div class="award-card">
+          <img src="assets/images/cert-ite-directors.png" alt="ITE Director's List Certificate" class="award-img expandable">
+          <div class="expand-hint">click to expand</div>
+          <div class="award-issuer">Institute of Technical Education Singapore</div>
+          <div class="award-name">Director's List — Top 10% in Electronics Engineering</div>
+          <div class="award-date">Jan 2024 · ITE College Central</div>
+        </div>
+
+        <div class="award-card">
+          <img src="assets/images/cert-buildingblocs.png" alt="BuildingBloCS Certificate of Participation" class="award-img expandable">
+          <div class="expand-hint">click to expand</div>
+          <div class="award-issuer">BuildingBloCS · SUTD</div>
+          <div class="award-name">Certificate of Participation — AI &amp; Machine Learning</div>
+          <div class="award-date">June 2025</div>
+        </div>
+
+        <div class="award-card">
+          <img src="assets/images/cert-linkedin.png" alt="LinkedIn Skill Assessments" class="award-img expandable">
+          <div class="expand-hint">click to expand</div>
+          <div class="award-issuer">LinkedIn</div>
+          <div class="award-name">Skill Assessments — Cybersecurity, Computer Networking, Python, Linux, TCP/IP</div>
+          <div class="award-date">2024–2025</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WRITEUPS ── -->
+    <section id="writeups" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 07</div>
+        <h2 class="sec-title">Writeups</h2>
+        <p class="sec-intro">Notes from labs, events, and courses. <a href="https://writeups.travisteo.com" style="color:var(--accent);font-family:var(--mono);font-size:12px;">See all ↗</a></p>
+      </div>
+      <div class="filters reveal" id="wu-filters">
+        <button class="filter-btn active" data-wf="all">All</button>
+        <button class="filter-btn" data-wf="lab">Lab</button>
+        <button class="filter-btn" data-wf="event">Event</button>
+        <button class="filter-btn" data-wf="course">Course</button>
+      </div>
+      <div id="wu-grid" class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;"></div>
+      <div id="wu-pag"  class="pagination reveal"></div>
+    </section>
+
+    <!-- ── EVENTS ── -->
+    <section id="events" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 08</div>
+        <h2 class="sec-title">Events</h2>
+        <p class="sec-intro">Conferences, webinars, and workshops attended or registered for.</p>
+      </div>
+      <div class="filters reveal" id="evt-filters">
+        <button class="filter-btn active" data-ef="all">All</button>
+        <button class="filter-btn" data-ef="conference">Conference</button>
+        <button class="filter-btn" data-ef="webinar">Webinar</button>
+        <button class="filter-btn" data-ef="attended">Attended</button>
+        <button class="filter-btn" data-ef="upcoming">Registered</button>
+      </div>
+      <div class="events-layout reveal">
+        <div>
+          <div id="events-list"></div>
+          <div class="pagination" id="evt-pag"></div>
+        </div>
+        <div>
+          <!-- Calendar and Add Event scroll together with page content -->
+          <div class="cal-wrap">
+            <div class="cal-head">
+              <button class="cal-nav" id="cal-prev">‹</button>
+              <span class="cal-label" id="cal-label"></span>
+              <button class="cal-nav" id="cal-next">›</button>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+            <div class="cal-legend">
+              <div class="cal-leg-item"><div class="cal-leg-dot" style="background:rgba(158,206,106,0.5);"></div>Attended</div>
+              <div class="cal-leg-item"><div class="cal-leg-dot" style="background:rgba(122,162,247,0.5);"></div>Registered</div>
+              <div class="cal-leg-item"><div class="cal-leg-dot" style="background:rgba(122,162,247,0.25);"></div>Today</div>
+            </div>
+          </div>
+          <div class="evt-add-form">
+            <div class="evt-form-title">// Log an Event</div>
+            <input id="evt-title"  class="evt-input"   type="text"   placeholder="Event name" maxlength="200" autocomplete="off">
+            <input id="evt-org"    class="evt-input"   type="text"   placeholder="Organisation (optional)" maxlength="200" autocomplete="off">
+            <input id="evt-date"   class="evt-input"   type="date">
+            <select id="evt-type"   class="evt-select">
+              <option value="conference">Conference</option>
+              <option value="webinar">Webinar</option>
+              <option value="workshop">Workshop</option>
+              <option value="other">Other</option>
+            </select>
+            <select id="evt-status" class="evt-select">
+              <option value="attended">Attended</option>
+              <option value="upcoming">Registered / Upcoming</option>
+            </select>
+            <button class="evt-add-btn" id="evt-add">+ Log Event</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT MINI ── -->
+    <section id="contact" class="section">
+      <div class="reveal">
+        <div class="sec-label">// 09</div>
+        <h2 class="sec-title">Get In Touch</h2>
+        <p class="sec-intro">Open to cybersecurity opportunities and internships in Singapore.</p>
+      </div>
+      <div class="contact-mini reveal">
+        <a href="mailto:contact@travisteo.com" class="ct-mini-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/travisteo/" target="_blank" rel="noopener noreferrer" class="ct-mini-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/travisistaken" target="_blank" rel="noopener noreferrer" class="ct-mini-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub (Projects)
+        </a>
+        <a href="https://profile.hackthebox.com/profile/019c8b17-61db-70e2-8b25-b19044df6342" target="_blank" rel="noopener noreferrer" class="ct-mini-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.996 0L0 6.5v11L12 24l12-6.5v-11L11.996 0zM12 2.236l9.5 5.146v9.24L12 21.764l-9.5-5.142v-9.24L12 2.236z"/></svg>
+          HackTheBox
+        </a>
+        <a href="https://tryhackme.com/p/travisteo" target="_blank" rel="noopener noreferrer" class="ct-mini-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10.705 0C7.54 0 4.902 2.285 4.374 5.31 1.9 5.775 0 7.942 0 10.545c0 2.94 2.386 5.325 5.325 5.325h5.38V10.47H7.88l4.126-4.564 4.125 4.563h-2.825v5.4h5.375C21.619 15.87 24 13.485 24 10.545c0-2.603-1.9-4.77-4.374-5.235C19.098 2.285 16.46 0 13.295 0c-.87 0-1.698.166-2.455.466A5.268 5.268 0 0010.705 0zM9.194 17.127v6.872h5.613v-6.872H9.194z"/></svg>
+          TryHackMe
+        </a>
+        <a href="https://contact.travisteo.com" class="ct-mini-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          All Links ↗
+        </a>
+      </div>
+
+      <!-- TryHackMe Live Badge -->
+      <div class="thm-badge-wrap reveal" style="margin-top:24px;">
+        <div class="sec-label" style="margin-bottom:12px;">// TryHackMe Badge</div>
+        <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2154149" style="border:none;"></iframe>
+      </div>
+    </section>
+
+  </div><!-- /page -->
+
+  <footer class="main-footer">
+    <div class="footer-row">
+      <span style="font-weight:700;color:var(--accent);">Travis Teo</span>
+      <span class="footer-sep">—</span>
+      <span class="year"></span>
+      <span class="footer-sep">·</span>
+      <span style="color:var(--muted);">Singapore</span>
+    </div>
+    <div class="footer-sub">portfolio.travisteo.com · ICT Student · Aspiring Cybersecurity Analyst</div>
   </footer>
 
-  <!-- Scripts — load order matters:
-       animations.js and nav.js must load before loader.js
-       so their functions exist when loader.js calls them -->
-  <script src="js/animations.js?v=1.0"></script>
-  <script src="js/nav.js?v=1.0"></script>
-  <script src="js/loader.js?v=1.0"></script>
+  <button class="go-top" id="go-top" aria-label="Back to top">↑</button>
 
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-x">✕</div>
+    <img id="lb-img" src="" alt="">
+  </div>
+
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal-box" id="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

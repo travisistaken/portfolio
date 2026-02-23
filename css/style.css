@@ -1,280 +1,113 @@
-/* ============================================================
-   style.css — Global styles
-   Applies to every page: variables, reset, nav, footer,
-   shared section headings, tags, buttons, reveal animation
-   ============================================================ */
+/* ── portfolio.travisteo.com ── */
 
-/* ── DESIGN TOKENS ── */
-:root {
-  --bg:      #0a0e17;
-  --surface: #0f1624;
-  --card:    #131d2e;
-  --border:  #1e2d42;
-  --accent:  #00d4ff;
-  --accent2: #00ff88;
-  --accent3: #ff6b35;
-  --text:    #e2eaf4;
-  --muted:   #6b85a0;
-  --mono: 'Space Mono', monospace;
-  --sans: 'Sora', sans-serif;
+/* ── HERO ── */
+.hero-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+  min-height:calc(100vh - var(--nav-h));
+  padding:60px 48px;
+  max-width:1060px;
+  margin:0 auto;
 }
+.hero-eyebrow { font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:2px; margin-bottom:16px; opacity:0; animation:fadeUp 0.5s forwards 0.1s; }
+.hero-name    { font-size:clamp(40px,5vw,68px); font-weight:700; letter-spacing:-2px; line-height:1.05; margin-bottom:12px; color:var(--text); opacity:0; animation:fadeUp 0.5s forwards 0.25s; }
+.hero-role    { font-family:var(--mono); font-size:12px; color:var(--accent2); margin-bottom:20px; opacity:0; animation:fadeUp 0.5s forwards 0.4s; }
+.hero-desc    { font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:32px; opacity:0; animation:fadeUp 0.5s forwards 0.55s; }
+.hero-cta     { display:flex; gap:12px; flex-wrap:wrap; opacity:0; animation:fadeUp 0.5s forwards 0.7s; }
+.hero-term    { opacity:0; animation:fadeLeft 0.6s forwards 0.5s; }
 
-/* ── RESET ── */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  overflow-x: hidden;
+/* ── ABOUT ── */
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 220px;
+  gap:52px;
+  align-items:start;
 }
+.about-grid p { font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:16px; }
+.about-grid strong { color:var(--text); }
+.about-grid a { color:var(--accent); text-decoration:none; }
+.about-grid a:hover { text-decoration:underline; }
 
-/* ── SCANLINE OVERLAY ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,212,255,0.015) 2px,
-    rgba(0,212,255,0.015) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
+/* ── PROJECTS ── */
+/* proj-card, proj-num etc. defined in shared.css */
+
+/* ── SKILLS ── */
+.skill-proof { font-family:var(--mono); font-size:10px; color:var(--cyan); margin-top:6px; }
+.skill-proof a { color:var(--cyan); text-decoration:none; }
+.skill-proof a:hover { text-decoration:underline; }
+
+/* ── EVENTS ── */
+.events-layout {
+  display:grid;
+  grid-template-columns:1fr 280px;
+  gap:32px;
+  align-items:start;
 }
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 0 48px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(10, 14, 23, 0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+.event-card {
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:20px;
+  margin-bottom:12px;
+  transition:border-color 0.2s;
 }
+.event-card:hover { border-color:var(--accent); }
+.event-badge   { font-family:var(--mono); font-size:10px; padding:2px 8px; border-radius:2px; margin-bottom:8px; display:inline-block; }
+.badge-attended { background:rgba(158,206,106,0.15); color:var(--green); border:1px solid rgba(158,206,106,0.3); }
+.badge-upcoming { background:rgba(122,162,247,0.12); color:var(--accent); border:1px solid rgba(122,162,247,0.3); }
+.event-date  { font-family:var(--mono); font-size:10px; color:var(--muted); margin-bottom:4px; }
+.event-title { font-size:15px; font-weight:700; margin-bottom:2px; color:var(--text); }
+.event-org   { font-family:var(--mono); font-size:11px; color:var(--accent); margin-bottom:8px; }
+.event-desc  { font-size:13px; color:var(--text2); line-height:1.7; margin-bottom:10px; }
 
-.nav-logo {
-  font-family: var(--mono);
-  font-size: 14px;
-  color: var(--accent);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
+/* ── CALENDAR ── */
+.cal-wrap { background:var(--card); border:1px solid var(--border); padding:20px; position:sticky; top:100px; }
+.cal-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+.cal-label { font-family:var(--mono); font-size:12px; font-weight:700; color:var(--text); }
+.cal-nav   { background:none; border:1px solid var(--border); color:var(--muted); cursor:pointer; padding:4px 10px; font-family:var(--mono); font-size:11px; transition:all 0.15s; }
+.cal-nav:hover { border-color:var(--accent); color:var(--accent); }
+.cal-grid  { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
+.cal-hdr   { font-family:var(--mono); font-size:9px; color:var(--muted); text-align:center; padding:4px 0; }
+.cal-cell  { font-family:var(--mono); font-size:10px; text-align:center; padding:6px 2px; color:var(--text2); cursor:pointer; border-radius:2px; transition:background 0.1s; min-height:28px; }
+.cal-cell:hover   { background:rgba(122,162,247,0.1); color:var(--accent); }
+.cal-cell.today   { background:rgba(122,162,247,0.15); color:var(--accent); font-weight:700; }
+.cal-cell.attended{ background:rgba(158,206,106,0.2); color:var(--green); }
+.cal-cell.upcoming{ background:rgba(122,162,247,0.2); color:var(--accent); }
+.cal-cell.marked  { background:rgba(187,154,247,0.2); color:var(--accent2); }
+.cal-legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.cal-leg-item { display:flex; align-items:center; gap:4px; font-family:var(--mono); font-size:9px; color:var(--muted); }
+.cal-leg-dot  { width:8px; height:8px; border-radius:50%; }
+
+/* ── ADD EVENT ── */
+.evt-add-form { background:var(--card); border:1px solid var(--border); padding:20px; margin-top:16px; }
+.evt-form-title { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.evt-input { width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); font-family:var(--mono); font-size:11px; padding:8px 10px; margin-bottom:8px; outline:none; transition:border-color 0.15s; }
+.evt-input:focus { border-color:var(--accent); }
+.evt-select { width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); font-family:var(--mono); font-size:11px; padding:8px 10px; margin-bottom:8px; outline:none; cursor:pointer; }
+.evt-add-btn { width:100%; font-family:var(--mono); font-size:11px; padding:9px; background:var(--accent); color:var(--bg); border:none; cursor:pointer; font-weight:700; transition:background 0.15s; }
+.evt-add-btn:hover { background:var(--accent2); }
+
+/* ── WRITEUPS GRID ── */
+.wu-card { background:var(--card); border:1px solid var(--border); padding:20px; transition:border-color 0.2s,transform 0.2s; }
+.wu-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+
+/* ── CONTACT MINI ── */
+.contact-mini { display:flex; flex-wrap:wrap; gap:12px; }
+.ct-mini-link { display:flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; color:var(--accent); text-decoration:none; padding:8px 14px; border:1px solid var(--border); background:var(--card); transition:all 0.15s; }
+.ct-mini-link:hover { border-color:var(--accent); background:rgba(122,162,247,0.1); }
+
+/* ── THM BADGE ── */
+.thm-badge-wrap { margin-top:12px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .hero-grid { grid-template-columns:1fr; padding:40px 20px; gap:32px; min-height:auto; }
+  .hero-term { display:none; }
+  .about-grid { grid-template-columns:1fr; gap:32px; }
+  .events-layout { grid-template-columns:1fr; }
+  .cal-wrap { position:static; }
 }
-
-.nav-logo span { color: var(--accent2); }
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--muted);
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  position: relative;
-  transition: color 0.2s;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
-
-/* ── SECTION BASE ── */
-section {
-  padding: 100px 48px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-section:not(#hero) {
-  border-top: 1px solid var(--border);
-}
-
-/* ── SECTION HEADINGS ── */
-.section-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent2);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.section-title {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 48px;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 48px;
-  height: 3px;
-  background: var(--accent);
-}
-
-/* ── SHARED TAGS ── */
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  padding: 4px 10px;
-  background: rgba(0,212,255,0.07);
-  border: 1px solid rgba(0,212,255,0.2);
-  color: var(--accent);
-  letter-spacing: 0.5px;
-}
-
-/* ── BUTTONS ── */
-.btn-primary {
-  background: var(--accent);
-  color: var(--bg);
-  padding: 12px 28px;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  display: inline-block;
-}
-
-.btn-primary:hover {
-  background: var(--accent2);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--accent);
-  padding: 12px 28px;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border: 1px solid var(--accent);
-  cursor: pointer;
-  transition: all 0.2s;
-  display: inline-block;
-}
-
-.btn-secondary:hover {
-  background: rgba(0,212,255,0.08);
-  transform: translateY(-2px);
-}
-
-/* ── FOOTER ── */
-footer {
-  text-align: center;
-  padding: 32px;
-  border-top: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* ── SCROLL REVEAL ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(24px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* ── MOBILE ── */
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { gap: 14px; }
-  .nav-links a { font-size: 10px; letter-spacing: 1px; }
-  section { padding: 64px 20px; }
-}
-
-/* ── UTILITY COLOUR CLASSES (replaces inline style= attributes) ──
-   These exist so we never need style= on elements, keeping CSP clean */
-.accent2          { color: var(--accent2); }
-.accent3          { color: var(--accent3); }
-.stat-num.accent2 { color: var(--accent2); }
-.stat-num.accent3 { color: var(--accent3); }
-.highlight-accent2 { color: var(--accent2); }
-.sublabel-accent3  { color: var(--accent3); }
-
-/* ── LOADING SHIMMER (moved from index.html <style> block) ──
-   Shown while loader.js fetches section files.
-   Fades out once body.loading class is removed. */
-body.loading::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 9998;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.4s ease;
+@media (max-width:640px) {
+  .hero-name { letter-spacing:-1px; }
 }
