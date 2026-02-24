@@ -12,12 +12,12 @@ It’s where I showcase my personal projects, experience, and work samples.
 
 ## Quick Links to My Sites
 
-- [Home](https://travisteo.com)  
-- [Contact](https://contact.travisteo.com)  
-- [Portfolio](https://portfolio.travisteo.com)  
-- [Resume](https://resume.travisteo.com)  
-- [Projects](https://projects.travisteo.com)  
+- [Home](https://travisteo.com)
+- [Portfolio](https://portfolio.travisteo.com)
+- [Projects](https://projects.travisteo.com)
+- [Resume](https://resume.travisteo.com)
 - [Writeups](https://writeups.travisteo.com)
+- [Contact](https://contact.travisteo.com)  
 
 ## Note
 
